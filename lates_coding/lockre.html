@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Panel</title>
+
+    <link rel="stylesheet" href="locker.css">
+
+
+</head>
+
+<body>
+
+
+    <div id="emergency-panel">
+
+        <h2>EMERGENCY PANEL</h2>
+        <div class="subtitle">Enter the CANCEL_CODE to stop the system</div>
+
+        <!-- DOOR -->
+        <div class="gate-container" id="gate">
+            <div class="gate gate-left"></div>
+            <div class="gate gate-right"></div>
+            <div class="lock"></div>
+        </div>
+
+        <!-- PIN DISPLAY -->
+        <div id="pin-display">_____</div>
+
+        <!-- KEYPAD -->
+        <div class="keypad">
+            <button onclick="addDigit('1')">1</button>
+            <button onclick="addDigit('2')">2</button>
+            <button onclick="addDigit('3')">3</button>
+
+            <button onclick="addDigit('4')">4</button>
+            <button onclick="addDigit('5')">5</button>
+            <button onclick="addDigit('6')">6</button>
+
+            <button onclick="addDigit('7')">7</button>
+            <button onclick="addDigit('8')">8</button>
+            <button onclick="addDigit('9')">9</button>
+
+            <button class="clear" onclick="clearAll()">CLEAR</button>
+            <button onclick="addDigit('0')">0</button>
+            <button class="enter" onclick="checkCode()">ENTER</button>
+        </div>
+
+        <div id="gate-message"></div>
+
+    </div>
+    <script src="javascript/locker.js"></script>
+</body>
+
+</html>

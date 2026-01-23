@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Escape Room</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="locker.css">
+</head>
+
+<body>
+    <!-- The top bar, with the logo text, cancel code reveal and timer -->
+    <div id="header">
+        <div id="top-bar">
+
+            <div id="title">
+                <h2>Escape Room</h2>
+                <p>Stop the logic bomb</p>
+            </div>
+
+            <div id="code-reveal">
+                <span id="code1">?</span>
+                <span id="code2">?</span>
+                <span id="code3">?</span>
+                <span id="code4">?</span>
+                <span id="code5">?</span>
+            </div>
+
+            <div id="timer">
+                Time: <strong id="timeDisplay">15:00</strong>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PROGRESS -->
+    <div id="progress-section">
+        <p id="station-progress">Station 1 of 5</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 20%;"></div>
+        </div>
+
+    </div>
+
+    <div id="main-content">
+
+        <div class="card" id="puzzle-card">
+            <div class="puzzle-heading">
+                <h3 id="stationheading">Station 1</h3>
+            </div>
+            <!-- ================= PUZZLE 1 ================================================================================================================================================================================================================== -->
+            <div class="puzzle-area">
+                <div id="puzzle1" style="display:block;">
+                    <div class="puzzle-image-wrapper" id="photo1">
+                        <img src="images/puzzle1.jpg" alt="SDLC cards">
+                    </div>
+
+
+                    <p><strong>You are at the first station.</strong></p>
+
+                    <p>
+                        On the table, you see a bunch of cards spread out.
+                    </p>
+
+                    <p>
+                        Each card has a stage of the software development cycle written on it,
+                        but they’re all mixed up.
+                    </p>
+
+                    <p>
+                        You need to put them in the correct order to obtain
+                        the first digit of <strong><span class="cancel-code">CANCEL_CODE</span></strong>.
+                    </p>
+
+                    <p><strong>Below are the shuffled cards:</strong></p>
+
+                    <ul id="sdlc-list">
+                        <li draggable="true">Testing</li>
+                        <li draggable="true">Planning</li>
+                        <li draggable="true">Deployment</li>
+                        <li draggable="true">Designing</li>
+                        <li draggable="true">Maintenance</li>
+                        <li draggable="true">Analysis</li>
+                        <li draggable="true">Development</li>
+                    </ul>
+
+                    <p>
+                        <strong>Your task is simple:</strong><br><br>
+                        Drag the cards into the correct order, from the first thing a project
+                        needs to the last thing in the Software Development Life Cycle.
+                    </p>
+                    <button class='btn' id="submitBtn">Check Order</button>
+                    <span class="warningline" id="warningline1"><strong></strong></span>
+                    <p class="formula" id="formula" style="display:none; font-weight:bold; margin-top:20px;">
+                        <strong>Correct!!</strong> <br> <br>First digit of <strong>CANCEL_CODE</strong> =
+                        Correct position of <u>Deployment</u> /
+                        Correct position of <u>Designing</u>
+                    </p>
+
+                    <input type="text" class="text-input" id="codeinput1" placeholder="Enter the first digit"
+                        style="display:none;">
+                    <br>
+                    <span class="warningline" id="warningdigit1" style="display:none;"><strong></strong></span>
+                    <button class='btn' id="codeinput1btn" style="display:none;">Check Digit</button>
+
+                    <p id="next-note" style="display:none; margin-top:15px;">
+                        Correct! the first digit of <strong><span class="cancel-code">CANCEL_CODE</span></strong> is
+                        2.<br><br>
+                        Take the note of the first digit and move to the next station.
+                    </p>
+                    <button class='btn' id="nextstationbtn" style="display: none;">Next Station</button>
+                </div>
+
+            </div>
+
+            <!-- ================= PUZZLE 2 =============================================================================================================================================================================================================== -->
+            <div id="puzzle2" style="display:none;">
+                <div class="puzzle-image-wrapper" id="photo2">
+                    <img src="images/puzzle2.jpg" alt="SDLC cards">
+                </div>
+
+                <p><strong>You are at the second station.</strong></p>
+
+                <p>
+                    Here, the setup looks like a project board.
+                </p>
+
+                <p>
+                    Five task cards are placed across the screen, but they are all in the wrong order.
+                </p>
+
+                <p>
+                    Below, you can see their dependency rules written clearly
+                </p>
+
+                <p><strong>The tasks are:</strong></p>
+                <ul class="taskslist" id="task-names">
+                    <li>T1: Final Integration Testing</li>
+                    <li>T2: Update Documentation</li>
+                    <li>T3: Code Review</li>
+                    <li>T4: Fix Remaining Bugs</li>
+                    <li>T5: Write Bug Fixes</li>
+                </ul>
+
+                <p><strong>And the dependencies are:</strong></p>
+                <ul class="taskslist" id="task-dependencies">
+                    <li>T1 depends on T2 and T4</li>
+                    <li>T2 depends on T3</li>
+                    <li>T4 depends on T3 and T5</li>
+                    <li>T3 and T5 don’t depend on anything</li>
+                </ul>
+
+                <p><strong>The tasks are:</strong></p>
+
+                <ul id="task-list">
+                    <li draggable="true">T1: Final Integration Testing</li>
+                    <li draggable="true">T2: Update Documentation</li>
+                    <li draggable="true">T3: Code Review</li>
+                    <li draggable="true">T4: Fix Remaining Bugs</li>
+                    <li draggable="true">T5: Write Bug Fixes</li>
+                </ul>
+
+                <p>
+                    <strong>Your task:</strong><br><br>
+                    Drag the cards into a sequence that follows all the dependency rules.
+                </p>
+
+                <button class='btn' id="submitBtn2">Check Order</button>
+                <span class="warningline" id="warningline2"><strong></strong></span>
+
+                <p class="formula" id="formula2" style="display:none; font-weight:bold; margin-top:20px;">
+                    <strong>Correct!!</strong> <br> <br>Second digit of <strong>CANCEL_CODE</strong> =
+                    Position of <u>T1</u> in the order
+                </p>
+
+                <input type="text" class="text-input" id="codeinput2" placeholder="Enter the second digit"
+                    style="display:none;">
+                <br>
+                <span class="warningline" id="warningdigit2" style="display:none;"><strong></strong></span>
+                <button class='btn' id="codeinput2btn" style="display:none;">Check Digit</button>
+
+
+                <p id="next-note2" style="display:none; margin-top:15px;">
+                    Correct! the second digit of <strong><span class="cancel-code">CANCEL_CODE</span></strong> is
+                    5.<br><br>
+                    Take the note of the second digit and move to the next station.
+                </p>
+                <button class='btn' id="nextstationbtn2" style="display: none;">Next Station</button>
+            </div>
+
+            <!-- ================= PUZZLE 3 ================================================================================================================================================================================================================= -->
+            <div id="puzzle3" style="display:none;">
+                <div class="puzzle-image-wrapper" id="photo3">
+                    <img src="images/puzzle3.jpg" alt="SDLC cards">
+                </div>
+
+                <p><strong>You stop at the third station.</strong></p>
+
+                <p>
+                    This station looks like a planning board used for workload scheduling.
+                </p>
+
+                <p>In the centre of the screen, you see the details for a single task:</p>
+                <p><strong>Task details:</strong></p>
+                <ul class="taskslist">
+                    <li><strong>Task:</strong> Task T1 – Final Integration Testing</li>
+                    <li><strong>Effort required:</strong> 6 person-weeks</li>
+                </ul>
+
+                <p><strong>Assigned team members:</strong></p>
+                <ul class="taskslist">
+                    <li>Ahmed – full-time (1 person-week per week)</li>
+                    <li>Lisa – part-time, mornings only (0.5 person-weeks per week)</li>
+                </ul>
+
+                <p>
+                    Only Ahmed and Lisa have the skills to complete this task,
+                    and only they will work on it until it is finished.
+                </p>
+
+                <p><strong>Your task:</strong></p>
+                <p>
+                    Work out how many <strong>full weeks</strong> are required
+                    to complete 6 person-weeks of work together.
+                </p>
+
+                <input type="text" class="text-input" id="weeksInput" placeholder="Enter number of weeks">
+                <span class="warningline" id="warningline"><strong></strong></span>
+                <br>
+                <button class='btn' id="puzzle3checkbtn">Check</button>
+
+                <p class="formula" id="formula3" style="display:none; font-weight:bold; margin-top:20px;">
+                    Correct! The task will take 4 weeks.<br><br>
+                    Third digit of <strong>CANCEL_CODE</strong> =
+                    Number of weeks needed to complete T1 , which is 4
+                </p>
+                <p id="next-note3" style="display:none; margin-top:15px;">
+                    You take the digit and move on to the next station.
+                </p>
+                <button class='btn' id="nextstationbtn3" style="display: none;">Next Station</button>
+
+            </div>
+
+            <!-- ================= PUZZLE 4 ============================================================================================================================================================================================================== -->
+            <div id="puzzle4" style="display:none;">
+                <div class="puzzle-image-wrapper" id="photo4">
+                    <img src="images/puzzle4.jpg" alt="SDLC cards">
+                </div>
+
+                <p><strong>You arrive at the fourth station.</strong></p>
+
+                <p>
+                    This station looks like a developer’s desk setup.
+                    A function is displayed on the screen:
+                </p>
+
+                <pre class="code-block">
+    def score_bonus(points):
+        if points >= 50:
+            bonus = points * 2
+        else:
+            bonus = points + 10
+        return bonus
+                </pre>
+
+                <p>
+                    Below the function, a note says: <br><br>
+                    <em>“Run this function with the test value shown at the station.”</em>
+                </p>
+
+                <p><strong>Test with:</strong> 35</p>
+                <p>Time is ticking...</p>
+                <p><strong>Your task:</strong></p>
+                <p>
+                    Figure out what the function returns when you call:
+                    <code>score_bonus(35)</code>
+                </p>
+
+                <input type="text" class="text-input" id="bonusInput" placeholder="Enter the returned value">
+                <span class="warningline" id="warningline4"><strong></strong></span>
+                <br>
+                <button class='btn' id="puzzle4checkbtn">Check</button>
+
+                <p class="formula" id="formula4" style="display:none; font-weight:bold; margin-top:20px;">
+                    Correct! The return value is 45.<br><br>
+                    Fourth digit of <strong>CANCEL_CODE</strong> =
+                    Result of <code>score_bonus(35)</code> ÷ 5
+                </p>
+
+                <input type="text" class="text-input" id="codeinput4" placeholder="Enter the fourth digit"
+                    style="display:none;">
+                <br>
+                <span class="warningline" id="warningdigit4" style="display:none;"><strong></strong></span>
+                <button class='btn' id="codeinput4btn" style="display:none;">Check Digit</button>
+
+                <p id="next-note4" style="display:none; margin-top:15px;">
+                    Correct! the fourth digit of <strong><span class="cancel-code">CANCEL_CODE</span></strong> is
+                    9.<br><br>
+                    You take the fourth digit and move toward the final station.
+                </p>
+                <button class='btn' id="nextstationbtn4" style="display: none;">Next Station</button>
+
+            </div>
+
+            <!-- ================= PUZZLE 5 ============================================================================================================================================================================================================== -->
+            <div id="puzzle5" style="display:none;">
+                <div class="puzzle-image-wrapper" id="photo5">
+                    <img src="images/puzzle5.jpg" alt="SDLC cards">
+                </div>
+                <p><strong>You reach the final station.</strong></p>
+
+
+
+                <p>
+                    This setup looks like a project planning table.
+                    Several risk cards are laid out in front of you.
+                </p>
+
+                <p>
+                    Each one describes something that could cause trouble during a project.
+                </p>
+
+                <p>
+                    Below are the risks:
+                </p>
+
+                <ul id="risk-list">
+                    <li draggable="true">A senior developer may be unavailable at a critical moment.</li>
+                    <li draggable="true">The team is using a technology they have never worked with before.</li>
+                    <li draggable="true">The client might change major requirements during the project.</li>
+                </ul>
+
+                <p>
+                    <strong>Your task:<br><br></strong> Arrange the risks from <strong>most serious → least
+                        serious.</strong>
+                </p>
+
+                <button class='btn' id="submitBtn5">Check Order</button>
+                <span class="warningline" id="warningline5"><strong></strong></span>
+
+                <p class="formula" id="formula5" style="display:none; font-weight:bold; margin-top:20px;">
+                    Correct! <br><br>Final digit of <strong>CANCEL_CODE</strong> = 4
+                </p>
+
+                <p id="final-note" style="display:none; margin-top:15px;">
+                    A locked door with a keypad waits in front of you.
+                    <br><br>
+                    This is where you need to enter the complete <strong><span
+                            class="cancel-code">CANCEL_CODE</span></strong>
+                    to stop the logic bomb.
+                </p>
+
+
+                <button class='btn' id="nextstationbtn5" style="display: none;">Go to Emergency Panel</button>
+
+
+
+            </div>
+
+        </div>
+
+        <!-- ================= Timer Up Message ================= -->
+        <div id="time-up-message" style="display:none;">
+            <h2>⏰ Time’s Up</h2>
+            <p>
+                The timer has reached zero.
+                The logic bomb has been triggered.
+            </p>
+            <p>
+                You were unable to enter the correct <strong>CANCEL_CODE</strong> in time.
+            </p>
+            <p class="fail-note">
+                Please refresh the page to try again.
+            </p>
+            <div class="button-group">
+                <button class="btn btn-redo" onclick="redoMission()">Redo Mission</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- ================= Hint System 1 ================= -->
+        <div class="card" id="hint-card1">
+            <div class="hints-heading">
+                <button class='hintbtn' id="hintBtn1">Show Hint</button>
+                <p>Click "Show Hint" to reveal help (optional).</p>
+            </div>
+            <div class="hints1">
+                <ol class="hint-list">
+                    <li id="1hint1">Hint 1 (locked)</li>
+                    <li id="1hint2">Hint 2 (locked)</li>
+                    <li id="1hint3">Hint 3 (locked)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= Hint System 2 ================= -->
+        <div class="card" id="hint-card2" style="display:none;">
+            <div class="hints-heading">
+                <button class='hintbtn' id="hintBtn2">Show Hint</button>
+                <p>Click "Show Hint" to reveal help (optional).</p>
+            </div>
+            <div class="hints2">
+                <ol class="hint-list">
+                    <li id="2hint1">Hint 1 (locked)</li>
+                    <li id="2hint2">Hint 2 (locked)</li>
+                    <li id="2hint3">Hint 3 (locked)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= Hint System 3 ================= -->
+        <div class="card" id="hint-card3" style="display:none;">
+            <div class="hints-heading">
+                <button class='hintbtn' id="hintBtn3">Show Hint</button>
+                <p>Click "Show Hint" to reveal help (optional).</p>
+            </div>
+            <div class="hints3">
+                <ol class="hint-list">
+                    <li id="3hint1">Hint 1 (locked)</li>
+                    <li id="3hint2">Hint 2 (locked)</li>
+                    <li id="3hint3">Hint 3 (locked)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= Hint System 4 ================= -->
+        <div class="card" id="hint-card4" style="display:none;">
+            <div class="hints-heading">
+                <button class='hintbtn' id="hintBtn4">Show Hint</button>
+                <p>Click "Show Hint" to reveal help (optional).</p>
+            </div>
+            <div class="hints4">
+                <ol class="hint-list">
+                    <li id="4hint1">Hint 1 (locked)</li>
+                    <li id="4hint2">Hint 2 (locked)</li>
+                    <li id="4hint3">Hint 3 (locked)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= Hint System 5 ================= -->
+        <div class="card" id="hint-card5" style="display:none;">
+            <div class="hints-heading">
+                <button class='hintbtn' id="hintBtn5">Show Hint</button>
+                <p>Click "Show Hint" to reveal help (optional).</p>
+            </div>
+            <div class="hints5">
+                <ol class="hint-list">
+                    <li id="5hint1">Hint 1 (locked)</li>
+                    <li id="5hint2">Hint 2 (locked)</li>
+                    <li id="5hint3">Hint 3 (locked)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="emergency-panel" style="display:none;">
+
+        <h2>EMERGENCY PANEL</h2>
+        <div class="subtitle">Enter the CANCEL_CODE to stop the system</div>
+
+        <!-- DOOR -->
+        <div class="gate-container" id="gate">
+            <div class="gate gate-left"></div>
+            <div class="gate gate-right"></div>
+            <div class="lock"></div>
+        </div>
+
+        <!-- PIN DISPLAY -->
+        <div id="pin-display">_____</div>
+
+        <!-- KEYPAD -->
+        <div class="keypad">
+            <button onclick="addDigit('1')">1</button>
+            <button onclick="addDigit('2')">2</button>
+            <button onclick="addDigit('3')">3</button>
+
+            <button onclick="addDigit('4')">4</button>
+            <button onclick="addDigit('5')">5</button>
+            <button onclick="addDigit('6')">6</button>
+
+            <button onclick="addDigit('7')">7</button>
+            <button onclick="addDigit('8')">8</button>
+            <button onclick="addDigit('9')">9</button>
+
+            <button class="clear" onclick="clearAll()">CLEAR</button>
+            <button onclick="addDigit('0')">0</button>
+            <button class="enter" onclick="checkCode()">ENTER</button>
+        </div>
+
+        <div id="gate-message"></div>
+
+    </div>
+    </div>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/puzzle2.js"></script>
+    <script src="javascript/puzzle3.js"></script>
+    <script src="javascript/puzzle4.js"></script>
+    <script src="javascript/puzzle5.js"></script>
+    <script src="javascript/locker.js"></script>
+</body>
+
+</html>
