@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Escape Room</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="locker.css">
 </head>
@@ -14,11 +15,12 @@
         <div id="top-bar">
 
             <div id="title">
-                <h2>Escape Room</h2>
+                <h2 id="main-title">Escape Room</h2>
                 <p>Stop the logic bomb</p>
             </div>
 
             <div id="code-reveal">
+                <span>Cancel_Code Revealer:</span>
                 <span id="code1">?</span>
                 <span id="code2">?</span>
                 <span id="code3">?</span>
@@ -93,7 +95,7 @@
                     <span class="warningline" id="warningline1"><strong></strong></span>
                     <p class="formula" id="formula" style="display:none; font-weight:bold; margin-top:20px;">
                         <strong>Correct!!</strong> <br> <br>First digit of <strong>CANCEL_CODE</strong> =
-                        Correct position of <u>Deployment</u> /
+                        Correct position of <u>Deployment</u> ÷
                         Correct position of <u>Designing</u>
                     </p>
 
@@ -370,14 +372,12 @@
                 You were unable to enter the correct <strong>CANCEL_CODE</strong> in time.
             </p>
             <p class="fail-note">
-                Please refresh the page to try again.
             </p>
             <div class="button-group">
                 <button class="btn btn-redo" onclick="redoMission()">Redo Mission</button>
+                <button id="exitBtn" class="btn btn-redo">Press 'Ctrl + W' to Exit</button>
             </div>
         </div>
-
-
 
 
         <!-- ================= Hint System 1 ================= -->
@@ -455,43 +455,49 @@
             </div>
         </div>
 
+        <!-- ================= EMERGENCY PANEL ================= -->
         <div id="emergency-panel" style="display:none;">
 
-        <h2>EMERGENCY PANEL</h2>
-        <div class="subtitle">Enter the CANCEL_CODE to stop the system</div>
+            <h2>EMERGENCY PANEL</h2>
+            <div class="subtitle">Enter the CANCEL_CODE to stop the system</div>
 
-        <!-- DOOR -->
-        <div class="gate-container" id="gate">
-            <div class="gate gate-left"></div>
-            <div class="gate gate-right"></div>
-            <div class="lock"></div>
+            <!-- DOOR -->
+            <div class="gate-container" id="gate">
+                <div class="gate gate-left"></div>
+                <div class="gate gate-right"></div>
+                <div class="lock"></div>
+            </div>
+
+            <!-- PIN DISPLAY -->
+            <div id="pin-display">_____</div>
+
+            <!-- KEYPAD -->
+            <div class="keypad">
+                <button onclick="addDigit('1')">1</button>
+                <button onclick="addDigit('2')">2</button>
+                <button onclick="addDigit('3')">3</button>
+
+                <button onclick="addDigit('4')">4</button>
+                <button onclick="addDigit('5')">5</button>
+                <button onclick="addDigit('6')">6</button>
+
+                <button onclick="addDigit('7')">7</button>
+                <button onclick="addDigit('8')">8</button>
+                <button onclick="addDigit('9')">9</button>
+
+                <button class="clear" onclick="clearAll()">CLEAR</button>
+                <button onclick="addDigit('0')">0</button>
+                <button class="enter" onclick="checkCode()">ENTER</button>
+            </div>
+
+            <div id="gate-message"></div>
+
         </div>
-
-        <!-- PIN DISPLAY -->
-        <div id="pin-display">_____</div>
-
-        <!-- KEYPAD -->
-        <div class="keypad">
-            <button onclick="addDigit('1')">1</button>
-            <button onclick="addDigit('2')">2</button>
-            <button onclick="addDigit('3')">3</button>
-
-            <button onclick="addDigit('4')">4</button>
-            <button onclick="addDigit('5')">5</button>
-            <button onclick="addDigit('6')">6</button>
-
-            <button onclick="addDigit('7')">7</button>
-            <button onclick="addDigit('8')">8</button>
-            <button onclick="addDigit('9')">9</button>
-
-            <button class="clear" onclick="clearAll()">CLEAR</button>
-            <button onclick="addDigit('0')">0</button>
-            <button class="enter" onclick="checkCode()">ENTER</button>
-        </div>
-
-        <div id="gate-message"></div>
-
-    </div>
+        <footer style="text-align:center; margin-top:40px; padding:20px; color:#9ca3af;">
+            <a href="disclaimer.html" style="color:#9ca3af; text-decoration:none;">
+                AI & Image Disclaimer
+            </a>
+        </footer>
     </div>
     <script src="javascript/main.js"></script>
     <script src="javascript/script.js"></script>

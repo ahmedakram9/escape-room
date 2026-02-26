@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mission Briefing</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
+    <link rel="stylesheet" href="story.css">
+</head>
+
+<body>
+
+    <div class="story-container">
+
+
+        <div class="story-card">
+
+            <div class="story-content">
+
+                <h1 class="story-title">Mission Briefing</h1>
+
+
+                <p class="typewriter">
+                    It’s late in the afternoon and you’re just about to leave the office
+                    when an alert suddenly flashes on your screen.
+                </p>
+
+                <div class="urgent-box">
+                    <p class="urgent-title">URGENT MESSAGE</p>
+                    <p>
+                        A logic bomb has been planted inside the company’s deployment system.
+                    </p>
+                    <p>
+                        It will trigger in <strong>15 minutes</strong> unless a 5-digit
+                        <strong class="cancel-code">CANCEL_CODE</strong> is entered.
+                    </p>
+                </div>
+
+                <p>
+                    You are the only one still in the office.
+                    The rest of the team is away at a conference.
+                </p>
+
+                <p>
+                    Everything is now on your shoulders.
+                </p>
+
+                <p>
+                    You blink at the screen, unsure for a moment what to do
+                </p>
+                <p>
+                    Another line appears:
+                </p>
+
+                <blockquote>
+                    “The code is hidden in five parts of the development room.
+                    Solve each station to retrieve one digit.”
+                </blockquote>
+
+                <p>
+                    You know if the deployment system goes down, the upcoming release for
+                    <strong>Northstar Analytics Ltd.</strong> will be completely blocked.
+                </p>
+
+                <p>
+                    The project is already on a tight deadline.
+                    Failure now would mean missed delivery, contractual penalties,
+                    and a very unhappy client.
+                </p>
+                <p>The development room door is slightly open.</p>
+
+                <p>
+                    You step into the development room.
+                    The door shuts behind you with a soft click.
+                </p>
+
+                <p>
+                    During solving each station you will be able to get hints,
+                    but each hint will cost you 30 seconds of time.
+                </p>
+
+                <p>
+                    Five stations are set up around the room, each with a different problem to solve.
+                    A small display near the door lights up with clear instructions:
+
+                </p>
+
+                <blockquote>
+                    “Complete all five stations.<br>
+                    Collect all five digits.<br>
+                    Enter the final code at the emergency panel.”
+                </blockquote>
+
+                <p>Your task is clear:</p>
+
+                <p class="mission">
+                    Solve all five puzzles and stop the system before the timer runs out.
+                    <strong>Good Luck!!</strong>
+                </p>
+
+                <button class="start-btn" onclick="startMission()">
+                    Start Mission
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <footer style="text-align:center; margin-top:40px; padding:20px; color:#9ca3af;">
+        <a href="disclaimer.html" style="color:#9ca3af; text-decoration:none;">
+            AI & Image Disclaimer
+        </a>
+    </footer>
+
+    <script>
+        function startMission() {
+            window.location.href = "puzzles.html";
+        }
+    </script>
+
+</body>
+
+</html>

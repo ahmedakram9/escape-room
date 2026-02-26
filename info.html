@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Escape Room - How It Works</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.png">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #0f172a, #020617);
+            font-family: Arial, sans-serif;
+            color: #e5e7eb;
+        }
+
+        #top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            padding: 15px 30px;
+            border-bottom: 2px solid #00D4A6;
+        }
+
+        #title h2 {
+            margin: 0;
+            font-size: 22px;
+            color: white;
+        }
+
+        #title p {
+            margin: 0;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #131826;
+            border-radius: 14px;
+            padding: 35px;
+            box-shadow: 0 0 35px rgba(0, 212, 166, 0.25);
+            animation: fadeIn 0.9s ease;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            color: #00D4A6;
+            letter-spacing: 1px;
+            font-size: 34px;
+        }
+
+        .sub {
+            margin: 0 0 25px 0;
+            color: #cbd5e1;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        .section {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section h3 {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+            color: white;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #e5e7eb;
+        }
+
+        .tip {
+            background: #08101c;
+            border-left: 4px solid #00D4A6;
+            padding: 14px 14px;
+            border-radius: 10px;
+            margin-top: 18px;
+            color: #cbd5e1;
+        }
+
+        .tip strong {
+            color: #00D4A6;
+        }
+
+        .buttons {
+            margin-top: 28px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #00D4A6;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 22px #00D4A6;
+            transform: scale(1.03);
+        }
+
+        .btn-secondary {
+            background: #1f2933;
+            color: #e5e7eb;
+            border: 1px solid #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #334155;
+            transform: scale(1.03);
+        }
+
+        .foot {
+            margin-top: 20px;
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="top-bar">
+        <div id="title">
+            <h2>Escape Room</h2>
+            <p>Stop the logic bomb</p>
+        </div>
+        <div style="color:#9ca3af; font-size: 14px;">
+            Instructions
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+
+            <h1>Welcome!</h1>
+            <p class="sub">
+                If you’ve never played an escape room before, don’t worry.
+                This one is simple: You just need to solve the puzzles, collect the CNCEL_CODE digits and enter the
+                final code in the Emergency Panel before time runs out.
+            </p>
+
+            <div class="section">
+                <h3>What you need to do</h3>
+                <ul>
+                    <li>You will complete <strong>5 puzzles</strong> (stations).</li>
+                    <li>Each station gives you <strong>1 digit</strong> of the <strong
+                            style="color:#00D4A6;">CANCEL_CODE</strong>.</li>
+                    <li>At the end, you enter the full code into the <strong>Emergency Panel</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>How puzzles work</h3>
+                <ul>
+                    <li>Some puzzles use <strong>drag and drop</strong> (move cards into the correct order).</li>
+                    <li>Some puzzles use <strong>typing an answer</strong> (number or result).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Hints</h3>
+                <ul>
+                    <li>Each puzzle has <strong>3 hints</strong>.</li>
+                    <li>Everytime you use a hint, it costs you 30 seconds of your time.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Timer & progress</h3>
+                <ul>
+                    <li>You have <strong></strong>15 minutes</strong> to complete all 5 stations.</li>
+                    <li>The timer is always visible at the top.</li>
+                    <li>If the timer reaches <strong>00:00</strong>, the mission fails.</li>
+                    <li>The progress bar shows how far you are through the stations.</li>
+                </ul>
+            </div>
+
+            <div class="buttons">
+                <a class="btn btn-primary" href="briefing.html">Start Mission</a>
+                <a class="btn btn-secondary" href="index.html">Back</a>
+            </div>
+
+            <div class="foot">
+                Ready? Click <strong>Start Mission</strong> to begin the story.
+            </div>
+
+
+        </div>
+        
+    </div>
+    <div>
+        <footer style="text-align:center; margin-top:40px; padding:20px; color:#9ca3af;">
+            <a href="disclaimer.html" style="color:#9ca3af; text-decoration:none;">
+                <u>AI & Image Disclaimer</u>
+            </a>
+        </footer>
+    </div>
+
+</body>
+
+</html>
