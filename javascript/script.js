@@ -67,6 +67,7 @@ function checkPuzzle1() {
     document.getElementById("warningline1").style.display = "none";
     document.getElementById("codeinput1").style.display = "block";
     document.getElementById("codeinput1btn").style.display = "block";
+    document.getElementById("hint-card1").style.display= "none";
     disableDragging("#sdlc-list");
     playSound_success();
     document.getElementById("hintBtn1").disabled = true;
@@ -129,6 +130,6 @@ function showHint1() {
     else if (hintLevel1 === 3) {
         document.getElementById("1hint3").innerText = "The stages follow a logical flow from planning to ongoing maintenance.";
         document.getElementById("hintBtn1").disabled = true;
-        document.getElementById("hintBtn1").innerText = "No more hints";
+        document.getElementById("hintBtn1").innerText = "No Hints Left";
     }
 }

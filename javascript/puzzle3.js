@@ -22,6 +22,7 @@ function checkPuzzle3() {
         document.getElementById("next-note3").style.display = "block";
         document.getElementById("warningline").innerText = "";
         document.getElementById("weeksInput").readOnly = true;
+        document.getElementById("hint-card3").style.display= "none";
 
         puzzle3Solved = true;
 
@@ -65,6 +66,6 @@ function showHint3() {
     else if (hintLevel3 === 3) {
         document.getElementById("3hint3").innerText = "Together they complete 1.5 person-weeks of work every week.";
         document.getElementById("hintBtn3").disabled = true;
-        document.getElementById("hintBtn3").innerText = "No more hints";
+        document.getElementById("hintBtn3").innerText = "No Hints Left";
     }
 }

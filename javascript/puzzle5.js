@@ -1,5 +1,5 @@
 var puzzle5Solved = false;
-var draggedItem = null;
+var draggedItem5 = null;
 
 var hintLevel5 = 0;
 document.getElementById("hintBtn5").onclick = showHint5;
@@ -13,7 +13,7 @@ function enablePuzzle5Drag() {
     items.forEach(function (item) {
 
         item.addEventListener("dragstart", function () {
-            draggedItem = item;
+            draggedItem5 = item;
         });
 
         item.addEventListener("dragover", function (e) {
@@ -21,10 +21,10 @@ function enablePuzzle5Drag() {
         });
 
         item.addEventListener("drop", function () {
-            if (draggedItem !== this) {
+            if (draggedItem5 !== this) {
                 var temp = this.innerText;
-                this.innerText = draggedItem.innerText;
-                draggedItem.innerText = temp;
+                this.innerText = draggedItem5.innerText;
+                draggedItem5.innerText = temp;
             }
         });
 
@@ -38,33 +38,33 @@ function checkPuzzle5() {
         return;
     }
 
-    var correctOrder = [
+    var correctOrder5 = [
         "The client might change major requirements during the project.",
         "The team is using a technology they have never worked with before.",
         "A senior developer may be unavailable at a critical moment.",
     ];
 
-    var items = document.querySelectorAll("#risk-list li");
-
-    for (var i = 0; i < correctOrder.length; i++) {
-        if (!items[i].innerText.startsWith(correctOrder[i])) {
+    var items5 = document.querySelectorAll("#risk-list li");
+    for (var i = 0; i < correctOrder5.length; i++) {
+        if (items5[i].innerText !== correctOrder5[i]) {
+            playSound_error();
             shakePuzzleCard();
             document.getElementById("warningline5").innerText = "";
-            document.getElementById("warningline5").innerText = "Incorrect risk priority. Re-evaluate the impact of each risk.";
+            document.getElementById("warningline5").innerText = "Incorrect order! Try again.";
             return;
         }
-
-        document.getElementById("submitBtn5").style.display = "none";
-        document.getElementById("warningline5").innerText = "";
-        document.getElementById("warningline5").style.display = "none";
-        disableDragging("#risk-list");
-        document.getElementById("nextstationbtn5").style.display = "block";
     }
 
 
     document.getElementById("formula5").style.display = "block";
     document.getElementById("code5").innerText = "4";
     document.getElementById("final-note").style.display = "block";
+    document.getElementById("submitBtn5").style.display = "none";
+    document.getElementById("warningline5").innerText = "";
+    document.getElementById("warningline5").style.display = "none";
+    disableDragging("#risk-list");
+    document.getElementById("nextstationbtn5").style.display = "block";
+    document.getElementById("hint-card5").style.display= "none";
 
     puzzle5Solved = true;
 
@@ -72,7 +72,7 @@ function checkPuzzle5() {
 
 }
 
-function gotoemergencypanel() { 
+function gotoemergencypanel() {
     //window.location.href = "lockre.html";
     document.getElementById("puzzle-card").style.display = "none";
     document.getElementById("emergency-panel").style.display = "block";
@@ -96,6 +96,6 @@ function showHint5() {
     else if (hintLevel5 === 3) {
         document.getElementById("5hint3").innerText = "Consider which risks could cause the most rework or project delay if they occur.";
         document.getElementById("hintBtn5").disabled = true;
-        document.getElementById("hintBtn5").innerText = "No more hints";
+        document.getElementById("hintBtn5").innerText = "No Hints Left";
     }
 }

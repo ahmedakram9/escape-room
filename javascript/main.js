@@ -36,6 +36,8 @@ function timeUp() {
     document.getElementById("hint-card3").style.display = "none";
     document.getElementById("hint-card4").style.display = "none";
     document.getElementById("hint-card5").style.display = "none";
+
+    document.getElementById("emergency-panel").style.display = "none";
 }
 
 function shakePuzzleCard() {

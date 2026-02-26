@@ -25,6 +25,8 @@ function checkPuzzle4() {
 
         document.getElementById("codeinput4btn").onclick = checkdigit4;
 
+        document.getElementById("hint-card4").style.display= "none";
+
         puzzle4Solved = true;
     }
     else if (userInput === "") {
@@ -82,6 +84,6 @@ function showHint4() {
     else if (hintLevel4 === 3) {
         document.getElementById("4hint3").innerText = "Follow the 'else' block and then apply the final calculation.";
         document.getElementById("hintBtn4").disabled = true;
-        document.getElementById("hintBtn4").innerText = "No more hints";
+        document.getElementById("hintBtn4").innerText = "No Hints Left";
     }
 }

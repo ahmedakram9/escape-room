@@ -1,5 +1,5 @@
 var puzzleSolved2 = false;
-var draggedItem = null;
+var draggedItem2 = null;
 
 var hintLevel2 = 0;
 document.getElementById("hintBtn2").onclick = showHint2;
@@ -14,7 +14,7 @@ function enableTaskDragAndDrop() {
     items.forEach(function (item) {
 
         item.addEventListener("dragstart", function () {
-            draggedItem = item;
+            draggedItem2 = item;
             document.getElementById("warningline2").innerText = "";
         });
 
@@ -23,10 +23,10 @@ function enableTaskDragAndDrop() {
         });
 
         item.addEventListener("drop", function () {
-            if (draggedItem !== this) {
+            if (draggedItem2 !== this) {
                 var temp = this.innerText;
-                this.innerText = draggedItem.innerText;
-                draggedItem.innerText = temp;
+                this.innerText = draggedItem2.innerText;
+                draggedItem2.innerText = temp;
             }
         });
 
@@ -68,6 +68,7 @@ function checkPuzzle2() {
     document.getElementById("warningline2").style.display = "none";
     document.getElementById("codeinput2").style.display = "block";
     document.getElementById("codeinput2btn").style.display = "block";
+    document.getElementById("hint-card2").style.display= "none";
     disableDragging("#task-list");
 
 
@@ -124,6 +125,6 @@ function showHint2() {
     else if (hintLevel2 === 3) {
         document.getElementById("2hint3").innerText = "T3 and T5 must appear early while final integration testing must come last.";
         document.getElementById("hintBtn2").disabled = true;
-        document.getElementById("hintBtn2").innerText = "No more hints";
+        document.getElementById("hintBtn2").innerText = "No Hints Left";
     }
 }
